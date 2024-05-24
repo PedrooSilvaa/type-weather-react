@@ -12,3 +12,7 @@ body {
   width: 100%;
   background-image: url('./assets/background.png');
 }
+
+div {
+  width: 100%;
+}
