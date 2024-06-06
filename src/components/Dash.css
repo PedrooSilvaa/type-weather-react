@@ -1,20 +1,22 @@
 .containerDash {
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    background-color: #13131A;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    background-color: #13131A; 
     gap: 5%;
 }
 
 .localCard {
-    height: 90%;
-    width: 50%;
+    height: 95%;
+    width: 45%;
     background-color: #16161F;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;    
-    padding: 10px;
-    margin: 20px ;
 }
 
 .pesquisa {
@@ -46,15 +48,19 @@
 }
 
 .localDetalhes{
-    width: 50%;
+    height: 95%;
+    width: 45%;
 }
 
 .detalhes{
-    width: 90%;
+    width: 100%;
     border-radius: 8px;
     color: #ffffff;
     background-color: #16161F;
     padding: 10px;
+    h3{
+        margin: 0;
+    }
 }
 
 .linhaDetalhe {
@@ -83,10 +89,10 @@
 }
 
 .proximosDias {
-    width: 90%;
+    width: 100%;
     padding: 10px;
     background-color: #16161F ;
-
+    color: #ffffff;
 }
 
 .itens {
@@ -94,9 +100,9 @@
     flex-direction: row;
     color: #ffffff;
     justify-content: space-around;
-    
 
     h3{
+        
         display: flex;
         flex-direction: column;
         align-items: center;

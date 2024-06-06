@@ -1,6 +1,7 @@
 body, html {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
 body {
@@ -13,6 +14,3 @@ body {
   background-image: url('./assets/background.png');
 }
 
-div {
-  width: 100%;
-}
