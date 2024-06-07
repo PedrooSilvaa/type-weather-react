@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
         {gameStage === 'search' && <Search handleLocal={handleLocal}/>}
-        {gameStage === 'dash' && <Dash local={local} handleLocal={handleLocal}/>}
+        {gameStage === 'dash' && <Dash localizacao={local} handleLocal={handleLocal}/>}
     </div>
   );
 }
