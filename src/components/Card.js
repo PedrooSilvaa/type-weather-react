@@ -16,7 +16,6 @@ const Card = ({ cidade, data, temp, tempMax, tempMin, icones }) => {
             </h1>
             <img src={icones} alt="icone" />
             
-            <img src={icones} alt="icone" />
         </div>
     </div>
   )

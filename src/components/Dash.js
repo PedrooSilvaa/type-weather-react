@@ -23,16 +23,15 @@ const Dash = ({localizacao, handleLocal}) => {
         day: "",
         icons: ""
     });
-    const [local, setLocal] = useState();
+    const [local, setLocal] = useState({localizacao});
     const [temps, setTemps] = useState([]);
     const [icons, setIcons] = useState([]);
     const [day, setDay] = useState([]);
 
-    setLocal({localizacao})
 
     const handleKey = (e) =>{
         handleLocal(local)
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${local}&lang=pt_br&appid=${chave}&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${local.localizacao}&lang=pt_br&appid=${chave}&units=metric`;
         console.log(local)
         fetch(url)
         .then((resposta) => {
@@ -51,7 +50,7 @@ const Dash = ({localizacao, handleLocal}) => {
                     icones.push(`https://openweathermap.org/img/wn/${dadoTemperatura.list[i].weather[0].icon}@2x.png`)
 
                     let textDia = dadoTemperatura.list[i].dt_txt
-                    dia.push(textDia.slice(5, 11))
+                    dia.push(textDia.slice(8, 10) + "/" + textDia.slice(5, 7))
                 }
 
                 setTemps(temperaturas);
@@ -75,7 +74,7 @@ const Dash = ({localizacao, handleLocal}) => {
                     
                     umidade: ((dadoTemperatura.list[0].main.humidity) + "%"),
 
-                    day: (textDia.slice(5, 11)),
+                    day: (textDia.slice(8, 10) + "/" + textDia.slice(5, 7)),
 
                     icons: (`https://openweathermap.org/img/wn/${dadoTemperatura.list[0].weather[0].icon}@2x.png`)
                     
@@ -88,9 +87,9 @@ const Dash = ({localizacao, handleLocal}) => {
             })
     }
 
-useEffect(() => {
-    handleKey();
-}, []);
+    useEffect(() => {
+        handleKey();
+    }, []);
     
 
 return (
@@ -100,10 +99,15 @@ return (
             <div className="pesquisa">
                 <img src={logo} alt="logo" />
                 <input placeholder='Buscar local'
-            onChange={(e) => setLocal(e.target.value)} type="text"/>
+                onChange={(e) => setLocal({ ...local, localizacao: e.target.value })}/>
             <button onClick={handleKey}>Buscar</button>
             </div>
-            <Card cidade={local} data={data.day} temp={data.temp} tempMax={data.tempMax} tempMin={data.tempMin} icones={data.icons}/>
+            <Card cidade={local.localizacao} 
+            data={data.day}
+            temp={data.temp} 
+            tempMax={data.tempMax} 
+            tempMin={data.tempMin} 
+            icones={data.icons}/>
         </div>
 
         <div className="localDetalhes">
